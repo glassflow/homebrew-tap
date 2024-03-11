@@ -5,20 +5,20 @@
 class Glassflow < Formula
   desc ""
   homepage "https://www.glassflow.dev/"
-  version "0.0.27"
+  version "0.0.28"
 
   on_macos do
-    if Hardware::CPU.arm?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.27/glassflow-cli_Darwin_arm64.tar.gz"
-      sha256 "9c1aa2eb7d1e116493686dc30a3956d4c89254593adfeabd770b8de00e52ae12"
+    if Hardware::CPU.intel?
+      url "https://github.com/glassflow/cli/releases/download/v0.0.28/glassflow-cli_Darwin_x86_64.tar.gz"
+      sha256 "2a9038f94785dfda47a8f50f556eabad0c7ac2dd4612bdddcb4a38be459ba45c"
 
       def install
         bin.install "glassflow"
       end
     end
-    if Hardware::CPU.intel?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.27/glassflow-cli_Darwin_x86_64.tar.gz"
-      sha256 "bf86ff2939bd9cff1daa8a2d8b49271f1cc2d732317990b85890782cddea4d6b"
+    if Hardware::CPU.arm?
+      url "https://github.com/glassflow/cli/releases/download/v0.0.28/glassflow-cli_Darwin_arm64.tar.gz"
+      sha256 "3f4f7154029b9dc715b8a901eb84ced58775773fedf43f44284da4e1c75eef72"
 
       def install
         bin.install "glassflow"
@@ -28,16 +28,16 @@ class Glassflow < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.27/glassflow-cli_Linux_arm64.tar.gz"
-      sha256 "1e5eaeaecd924848f6380a183a1c34316a194231ace711e0032ca22c581fef5a"
+      url "https://github.com/glassflow/cli/releases/download/v0.0.28/glassflow-cli_Linux_arm64.tar.gz"
+      sha256 "d1c515d05839ddc6635ec87a983aff7365df02a639c3b305e308dd13a52abe37"
 
       def install
         bin.install "glassflow"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.27/glassflow-cli_Linux_x86_64.tar.gz"
-      sha256 "44f33a7ed48c5fe72c8573504d3d594988e8bb49c434c8039bc7c728760b4417"
+      url "https://github.com/glassflow/cli/releases/download/v0.0.28/glassflow-cli_Linux_x86_64.tar.gz"
+      sha256 "a8da856fcffd80dfbe9dc2c44938a152a952b3d45bc3186c2d36e190eea131b7"
 
       def install
         bin.install "glassflow"
