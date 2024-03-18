@@ -5,20 +5,20 @@
 class Glassflow < Formula
   desc ""
   homepage "https://www.glassflow.dev/"
-  version "0.0.35"
+  version "0.0.38"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.35/glassflow-cli_Darwin_x86_64.tar.gz"
-      sha256 "920e2dc1f5e20f4bfca22c2205053e4b9d20b86d9011ad1c50d37c01ebf3016a"
+      url "https://github.com/glassflow/cli/releases/download/v0.0.38/glassflow-cli_Darwin_x86_64.tar.gz"
+      sha256 "7abfa0f51959be98c6f497873c2806db68ebc3c7496745ac76662b442810ae21"
 
       def install
         bin.install "glassflow"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.35/glassflow-cli_Darwin_arm64.tar.gz"
-      sha256 "e78c5ade76ec0f329c9d8aa21900c51140f9c498e645c7d7fa5cca48d8a0d012"
+      url "https://github.com/glassflow/cli/releases/download/v0.0.38/glassflow-cli_Darwin_arm64.tar.gz"
+      sha256 "02463c22ccc310fe97865707d282a7238aa3a6de6864f76c876fefef995c4244"
 
       def install
         bin.install "glassflow"
@@ -27,17 +27,17 @@ class Glassflow < Formula
   end
 
   on_linux do
-    if Hardware::CPU.intel?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.35/glassflow-cli_Linux_x86_64.tar.gz"
-      sha256 "8fb12c53b9ccdac59c8091234233dc110e3a1d8102a2777c23f4517c5933dc05"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/glassflow/cli/releases/download/v0.0.38/glassflow-cli_Linux_arm64.tar.gz"
+      sha256 "e92df5a02ef8bcff571b3bd5cba6fe087415a08517a2e9df5081c03f51c4b55e"
 
       def install
         bin.install "glassflow"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.35/glassflow-cli_Linux_arm64.tar.gz"
-      sha256 "11f2aaf8d77fc2ef43df53f0d61a776e7a1e9d1e7c5bcd0e8b83d97cfe3a7efa"
+    if Hardware::CPU.intel?
+      url "https://github.com/glassflow/cli/releases/download/v0.0.38/glassflow-cli_Linux_x86_64.tar.gz"
+      sha256 "6cbf99b00692e40b6854ed4aeb40b5c97f3641b7cb5446afb539054e1bb0a03a"
 
       def install
         bin.install "glassflow"
