@@ -5,20 +5,20 @@
 class Glassflow < Formula
   desc ""
   homepage "https://www.glassflow.dev/"
-  version "0.0.40"
+  version "1.0.0"
 
   on_macos do
     if Hardware::CPU.intel?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.40/glassflow-cli_Darwin_x86_64.tar.gz"
-      sha256 "f16fa6030c069ec4efb1012340be8ac9e6a2f64f2b20aa45428fcc1d654fcbe6"
+      url "https://github.com/glassflow/cli/releases/download/v1.0.0/glassflow-cli_Darwin_x86_64.tar.gz"
+      sha256 "a5cc09583880885a497452878629cba427c93c2088636eb7fe66654456f34209"
 
       def install
         bin.install "glassflow"
       end
     end
     if Hardware::CPU.arm?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.40/glassflow-cli_Darwin_arm64.tar.gz"
-      sha256 "516e7a794ba3df7e70b60e16d159f56b11ab757e5657f6daabb75a39a0b522e7"
+      url "https://github.com/glassflow/cli/releases/download/v1.0.0/glassflow-cli_Darwin_arm64.tar.gz"
+      sha256 "a2dc4e3959e7f95555c04edd69baaecc56e539780582afefa8530838bf22998e"
 
       def install
         bin.install "glassflow"
@@ -28,16 +28,16 @@ class Glassflow < Formula
 
   on_linux do
     if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.40/glassflow-cli_Linux_arm64.tar.gz"
-      sha256 "116531bbaaafd3bd9040817dd89e86c1b4ffe4d338b1ee405b16e9ff51178469"
+      url "https://github.com/glassflow/cli/releases/download/v1.0.0/glassflow-cli_Linux_arm64.tar.gz"
+      sha256 "275f04dab776350617e673a565c4e71def13d74c670185ad3d078c2378d14d4e"
 
       def install
         bin.install "glassflow"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/glassflow/cli/releases/download/v0.0.40/glassflow-cli_Linux_x86_64.tar.gz"
-      sha256 "dfed23c71b0488f2c8f5478734279c6dac6b65d0ca6d6f20fce2907a44d9686d"
+      url "https://github.com/glassflow/cli/releases/download/v1.0.0/glassflow-cli_Linux_x86_64.tar.gz"
+      sha256 "c7d2c0664d1b57b0f8bab53bd5b0996b604f63a1732310d83945329af33b98b0"
 
       def install
         bin.install "glassflow"
