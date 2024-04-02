@@ -5,20 +5,20 @@
 class Glassflow < Formula
   desc ""
   homepage "https://www.glassflow.dev/"
-  version "1.0.13"
+  version "1.0.15"
 
   on_macos do
-    if Hardware::CPU.intel?
-      url "https://github.com/glassflow/cli/releases/download/v1.0.13/glassflow-cli-1.0.13-darwin-amd64.tar.gz"
-      sha256 "438adfc70dd2335426aa1d307c40d0831c6191c39d49e1b5b30dfa6fc03442b1"
+    if Hardware::CPU.arm?
+      url "https://github.com/glassflow/cli/releases/download/v1.0.15/glassflow-cli-1.0.15-darwin-arm64.tar.gz"
+      sha256 "80f3007239e212c2bf58d5f54934b58f1466d1bc81f0029a4a6671c3fc55fff7"
 
       def install
         bin.install "glassflow"
       end
     end
-    if Hardware::CPU.arm?
-      url "https://github.com/glassflow/cli/releases/download/v1.0.13/glassflow-cli-1.0.13-darwin-arm64.tar.gz"
-      sha256 "d48c2de02d5185ee70e13e0a47c3a441457b2e5d6ba38543ffee9d909612a205"
+    if Hardware::CPU.intel?
+      url "https://github.com/glassflow/cli/releases/download/v1.0.15/glassflow-cli-1.0.15-darwin-amd64.tar.gz"
+      sha256 "dc792fa59155556193be484f61b9218b3f3cf0ab6ef9e8bd2d57dcc1829e2ef8"
 
       def install
         bin.install "glassflow"
@@ -27,25 +27,25 @@ class Glassflow < Formula
   end
 
   on_linux do
-    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
-      url "https://github.com/glassflow/cli/releases/download/v1.0.13/glassflow-cli-1.0.13-linux-armv6.tar.gz"
-      sha256 "3fa0259b501e59f53ed0cee4a06aae994ffed658b27b8b8f136f6cb2f66ef35b"
+    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
+      url "https://github.com/glassflow/cli/releases/download/v1.0.15/glassflow-cli-1.0.15-linux-arm64.tar.gz"
+      sha256 "751ea2316babd79002c0d341323cc08bfc471519fd59bf895f130dd7b33d814d"
 
       def install
         bin.install "glassflow"
       end
     end
     if Hardware::CPU.intel?
-      url "https://github.com/glassflow/cli/releases/download/v1.0.13/glassflow-cli-1.0.13-linux-amd64.tar.gz"
-      sha256 "3525e869c5f2bb25c077578b173b7f6f69090f1f5e4b80d69372e5204c1f1614"
+      url "https://github.com/glassflow/cli/releases/download/v1.0.15/glassflow-cli-1.0.15-linux-amd64.tar.gz"
+      sha256 "87b2a793f3ebd9268cb9671372d2d816d3a9dab6f09630111fbc2c09c3e1ff5c"
 
       def install
         bin.install "glassflow"
       end
     end
-    if Hardware::CPU.arm? && Hardware::CPU.is_64_bit?
-      url "https://github.com/glassflow/cli/releases/download/v1.0.13/glassflow-cli-1.0.13-linux-arm64.tar.gz"
-      sha256 "7e869c1392f2a07954ddee783c51fef2184b76922d75d5949de1aca4416aa425"
+    if Hardware::CPU.arm? && !Hardware::CPU.is_64_bit?
+      url "https://github.com/glassflow/cli/releases/download/v1.0.15/glassflow-cli-1.0.15-linux-armv6.tar.gz"
+      sha256 "c96cdcc1bfdc09cb5e312a40f2d1ba9e584e71fed9e6dbb3ef69330dc90d59bf"
 
       def install
         bin.install "glassflow"
