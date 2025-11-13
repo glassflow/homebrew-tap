@@ -19,7 +19,7 @@ class Glassflow < Formula
       end
     end
     on_arm do
-      url "https://github.com/glassflow/cli/releases/download/v2.2.0/glassflow-cli-2.0.0-darwin-arm64.tar.gz"
+      url "https://github.com/glassflow/cli/releases/download/v2.0.0/glassflow-cli-2.0.0-darwin-arm64.tar.gz"
       sha256 "fef4c877fd4f8ae25d663b818ae9cbc6770d6a24d6b782488596f3d1ec044ed2"
 
       def install
