@@ -2,51 +2,74 @@
 
 This repository contains the Homebrew formula for the [GlassFlow CLI](https://github.com/glassflow/cli).
 
-## Installation
+## Quick Start
 
-Install the GlassFlow CLI using Homebrew:
+### Prerequisites
+
+- **Docker** (or compatible runtime like Docker Desktop, OrbStack, Colima, or Podman)
+- **Helm** (v3) - used by the CLI to install charts ([install Helm](https://helm.sh/docs/intro/install/))
+- **kubectl** (installed automatically as a Homebrew dependency, or install manually)
+
+Give Docker enough resources (for example, 6-8 GB RAM and 4 CPUs) so all pods can schedule.
+
+### Installation
+
+Install via Homebrew:
 
 ```bash
 brew tap glassflow/tap
 brew install glassflow
 ```
 
-## What is GlassFlow CLI?
+### Usage
 
-The GlassFlow CLI provides a local development environment for exploring and testing [GlassFlow ETL](https://github.com/glassflow/clickhouse-etl) - an open-source tool for real-time data processing from Kafka to ClickHouse.
+Recommended flow:
 
-The CLI sets up:
-- Local Kubernetes cluster (Kind)
-- Kafka message broker
-- ClickHouse database
-- GlassFlow ETL service
-- Demo pipeline with sample data
+1. Install cluster and services:
 
-> **Note**: This CLI is designed for **local testing, demos, and exploration only**. For production deployments, use the [official GlassFlow Helm charts](https://github.com/glassflow/charts).
+```bash
+glassflow up
+```
 
-## Requirements
+2. Set up demo pipeline and port-forwarding:
 
-- **Docker** (or compatible runtime like Docker Desktop, OrbStack, Colima, or Podman)
-- **kubectl** (installed automatically as a dependency)
+```bash
+glassflow setup-demo
+```
 
-## Usage
-
-After installation, start the local development environment:
+All-in-one flow:
 
 ```bash
 glassflow up --demo
 ```
 
-Access the services:
+Once running, access (ports may vary if alternatives were chosen):
 - **GlassFlow UI**: http://localhost:30080
 - **GlassFlow API**: http://localhost:30180
 - **ClickHouse HTTP**: http://localhost:30090
 
-Stop the environment:
+Stop and clean up:
 
 ```bash
 glassflow down
 ```
+
+## Commands
+
+```bash
+glassflow up
+glassflow setup-demo
+glassflow up --demo
+glassflow down
+glassflow version
+glassflow --help
+```
+
+## What is GlassFlow CLI?
+
+The GlassFlow CLI provides a local development environment for exploring and testing [GlassFlow ETL](https://github.com/glassflow/clickhouse-etl) - an open-source tool for real-time data processing from Kafka to ClickHouse.
+
+> **Note**: This CLI is designed for **local testing, demos, and exploration only**. For production deployments, use the [official GlassFlow Helm charts](https://github.com/glassflow/charts).
 
 ## Resources
 
@@ -61,4 +84,3 @@ glassflow down
 This formula is manually updated after each release. The formula file is located at `Formula/glassflow.rb`.
 
 For automated updates, see the [GlassFlow CLI repository](https://github.com/glassflow/cli) release workflow.
-
