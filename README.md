@@ -7,8 +7,8 @@ This repository contains the Homebrew formula for the [GlassFlow CLI](https://gi
 ### Prerequisites
 
 - **Docker** (or compatible runtime like Docker Desktop, OrbStack, Colima, or Podman)
-- **Helm** (v3) - used by the CLI to install charts ([install Helm](https://helm.sh/docs/intro/install/))
-- **kubectl** (installed automatically as a Homebrew dependency, or install manually)
+- **Helm** (v3) - installed automatically as a Homebrew dependency, or install manually ([install Helm](https://helm.sh/docs/intro/install/))
+- **kubectl** - installed automatically as a Homebrew dependency, or install manually
 
 Give Docker enough resources (for example, 6-8 GB RAM and 4 CPUs) so all pods can schedule.
 
