@@ -5,23 +5,23 @@
 class Glassflow < Formula
   desc "GlassFlow CLI for local development environment. Requires Docker (or compatible runtime), kubectl, and helm."
   homepage "https://www.glassflow.dev/"
-  version "2.4.2"
+  version "2.4.3"
 
   depends_on "helm"
   depends_on "kubectl"
 
   on_macos do
     on_intel do
-      url "https://github.com/glassflow/cli/releases/download/v2.4.2/glassflow-cli-2.4.2-darwin-amd64.tar.gz"
-      sha256 "9b3f25a6847e02c8fed2ad59b7a5548bcb05692e46108c3bdd722b257d2213e8"
+      url "https://github.com/glassflow/cli/releases/download/v2.4.3/glassflow-cli-2.4.3-darwin-amd64.tar.gz"
+      sha256 "dcc0a8c19b3e71ce8b7b5d54ba74c69113e7d1d25fc6073306d8ae07f8db116b"
 
       def install
         bin.install "glassflow"
       end
     end
     on_arm do
-      url "https://github.com/glassflow/cli/releases/download/v2.4.2/glassflow-cli-2.4.2-darwin-arm64.tar.gz"
-      sha256 "a8f1084e198b04f86e637386766f203dbd13b86b0fc8943f6255b1db6d2951fc"
+      url "https://github.com/glassflow/cli/releases/download/v2.4.3/glassflow-cli-2.4.3-darwin-arm64.tar.gz"
+      sha256 "2259a8c8f491b6c2452c0d5cc7f79f28b3dcba318d2324692a30f234ccce4e55"
 
       def install
         bin.install "glassflow"
@@ -32,8 +32,8 @@ class Glassflow < Formula
   on_linux do
     on_intel do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/glassflow/cli/releases/download/v2.4.2/glassflow-cli-2.4.2-linux-amd64.tar.gz"
-        sha256 "c7de8741d226dbaa6e4aba0deb2f2400ae57e1ffa3405666447f929ab5118699"
+        url "https://github.com/glassflow/cli/releases/download/v2.4.3/glassflow-cli-2.4.3-linux-amd64.tar.gz"
+        sha256 "9b05f52da43d9bad6b46d15ea580f546e0584f2f75568ac8c630eea471e6650a"
 
         def install
           bin.install "glassflow"
@@ -42,8 +42,8 @@ class Glassflow < Formula
     end
     on_arm do
       if Hardware::CPU.is_64_bit?
-        url "https://github.com/glassflow/cli/releases/download/v2.4.2/glassflow-cli-2.4.2-linux-arm64.tar.gz"
-        sha256 "a7bbc82385886052c3e4bfa9bcd4dcdca803468caaa3a2981a70ca636803e24c"
+        url "https://github.com/glassflow/cli/releases/download/v2.4.3/glassflow-cli-2.4.3-linux-arm64.tar.gz"
+        sha256 "2ab442a97b37ba2b05d2288a7ce53002a1617d7641e835978b16b5941d05dcae"
 
         def install
           bin.install "glassflow"
