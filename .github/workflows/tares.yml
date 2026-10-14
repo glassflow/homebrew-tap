@@ -32,10 +32,11 @@ jobs:
 
       - uses: Homebrew/actions/setup-homebrew@main
 
-      - name: Tap the checkout
-        run: |
-          brew untap glassflow/tap 2>/dev/null || true
-          brew tap glassflow/tap "$GITHUB_WORKSPACE"
+      # setup-homebrew links this checkout in as the glassflow/tap tap, so the
+      # install below tests the formula as it is in this PR. It also blanks
+      # HOMEBREW_NO_INSTALL_FROM_API, so set it again for the later steps.
+      - name: Keep brew off the API
+        run: echo "HOMEBREW_NO_INSTALL_FROM_API=1" >> "$GITHUB_ENV"
 
       - name: Install
         run: brew install glassflow/tap/tares
