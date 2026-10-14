@@ -84,3 +84,14 @@ The GlassFlow CLI provides a local development environment for exploring and tes
 This formula is manually updated after each release. The formula file is located at `Formula/glassflow.rb`.
 
 For automated updates, see the [GlassFlow CLI repository](https://github.com/glassflow/cli) release workflow.
+
+## Tares
+
+[Tares](https://tares-glassflow.com) is the data plane for always-on AI agents. Install it with Homebrew on macOS or Linux:
+
+```bash
+brew install glassflow/tap/tares
+tares --version
+```
+
+Docs: https://docs.glassflow.ai/tares
