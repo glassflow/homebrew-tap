@@ -87,11 +87,13 @@ For automated updates, see the [GlassFlow CLI repository](https://github.com/gla
 
 ## Tares
 
-[Tares](https://tares-glassflow.com) is the data plane for always-on AI agents. Install it with Homebrew on macOS or Linux:
+[Tares](https://github.com/glassflow/tares) is the data plane for always-on AI agents. Install it with Homebrew on macOS or Linux:
 
 ```bash
 brew install glassflow/tap/tares
 tares --version
 ```
+
+On Intel Macs the install builds Python 3.14 from source, because Homebrew has no prebuilt bottle for it there, and takes about 27 minutes. Apple Silicon and Linux take a couple of minutes.
 
 Docs: https://docs.glassflow.ai/tares
