@@ -1,0 +1,69 @@
+name: tares formula
+
+on:
+  pull_request:
+    paths:
+      - Formula/tares.rb
+      - .github/workflows/tares.yml
+  push:
+    branches: [main]
+    paths:
+      - Formula/tares.rb
+      - .github/workflows/tares.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  HOMEBREW_NO_AUTO_UPDATE: 1
+
+jobs:
+  install:
+    name: install (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-15, macos-15-intel, ubuntu-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: Homebrew/actions/setup-homebrew@main
+
+      # setup-homebrew links this checkout in as the glassflow/tap tap, so the
+      # install below tests the formula as it is in this PR. The Homebrew API
+      # stays on, as for users: forcing it off clones homebrew/core mid-install
+      # on Linux and python@3.14 then fails to resolve.
+      - name: Install
+        run: brew install glassflow/tap/tares
+
+      - name: Version matches the formula
+        run: |
+          expected="$(brew info --json=v2 glassflow/tap/tares | jq -r '.formulae[0].versions.stable')"
+          actual="$("$(brew --prefix)/bin/tares" --version)"
+          echo "expected: tares $expected"
+          echo "actual:   $actual"
+          test "$actual" = "tares $expected"
+
+      - name: brew test
+        run: brew test glassflow/tap/tares
+
+      - name: taresd answers /health
+        env:
+          TARES_PORT: 8799
+        run: |
+          export TARES_DB="$RUNNER_TEMP/t.duckdb"
+          "$(brew --prefix)/bin/taresd" > "$RUNNER_TEMP/taresd.log" 2>&1 &
+          pid=$!
+          trap 'kill "$pid" 2>/dev/null || true' EXIT
+          for _ in $(seq 30); do
+            if curl -fsS "http://127.0.0.1:$TARES_PORT/health"; then
+              echo
+              exit 0
+            fi
+            sleep 1
+          done
+          echo "taresd never answered /health" >&2
+          cat "$RUNNER_TEMP/taresd.log" >&2
+          exit 1
