@@ -1,8 +1,8 @@
 class Tares < Formula
   desc "Data plane for always-on AI agents"
   homepage "https://github.com/glassflow/tares"
-  url "https://files.pythonhosted.org/packages/83/21/f30db449afe4b366da9d0a52c6c72094a1c2a01eeb3e978516dafe9d7ae8/tares-1.47.0.tar.gz"
-  sha256 "7dea2848bf1f3d56afaa33a4f794536690ec8fc288c98c60ea3a54ca18528e56"
+  url "https://files.pythonhosted.org/packages/c8/88/299b127e0743d911f9c512a7e7e2e0639ee19c98e1f46caaa0c204dc946b/tares-1.48.0.tar.gz"
+  sha256 "9bb13d4f3ee87dbe1486cd2507a5f24c1fcc63f5ea50be14723d4b1f4b1ca372"
   license "MIT"
 
   depends_on "python@3.14"
